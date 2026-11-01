@@ -1,0 +1,37 @@
+# Workflow for deploying static content to GitHub Pages
+name: Deploy Static Pages to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Creates a single deployment directory holding both subfolders
+      - name: Prepare Deployment Directory
+        run: |
+          mkdir staging
+          cp -r app-one staging/
+          cp -r app-two staging/
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./staging
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
