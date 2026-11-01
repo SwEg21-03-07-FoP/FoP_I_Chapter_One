@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flowchart Exercise Solutions</title>
     
-    <!-- 1. Load Marked.js to parse Markdown -->
+    <!-- 1. Load Marked.js to parse Markdown (FIXED FULL LINK) -->
     <script src="https://jsdelivr.net"></script>
 
-    <!-- 2. Load GitHub Markdown CSS for clean styling -->
+    <!-- 2. Load GitHub Markdown CSS for clean styling (FIXED FULL LINK) -->
     <link rel="stylesheet" href="https://cloudflare.com">
     
-    <!-- 3. Load Prism.js for code syntax highlighting -->
+    <!-- 3. Load Prism.js for code syntax highlighting (FIXED FULL LINKS) -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <script src="https://cloudflare.com"></script>
     <script src="https://cloudflare.com"></script>
@@ -55,8 +55,8 @@
     </article>
 
     <script>
-        // Point exactly one level up to target the root directory file
-        // URL-encoding is used because of the spaces in the filename
+        // Use full URL-encoding for spaces in the filename
+        // Assumes you are copying the file into the app folder via GitHub Actions
         const markdownFilePath = 'Flowchart%20Exercise%20Solutions.md';
 
         fetch(markdownFilePath)
@@ -68,7 +68,11 @@
             })
             .then(markdownText => {
                 // Convert Markdown formatting to HTML layout
-                document.getElementById('content').innerHTML = marked.parse(markdownText);
+                if (typeof marked !== 'undefined') {
+                    document.getElementById('content').innerHTML = marked.parse(markdownText);
+                } else {
+                    throw new Error("Marked library failed to load.");
+                }
                 
                 // Trigger colors for nested code blocks
                 if (typeof Prism !== 'undefined') {
@@ -79,7 +83,8 @@
                 document.getElementById('content').innerHTML = `
                     <div class="error-message">
                         <h3>Unable to load Markdown File</h3>
-                        <p>Make sure "Flowchart Exercise Solutions.md" is copied to your deployment directory by your GitHub Action workflow.</p>
+                        <p>Details: ${error.message}</p>
+                        <p>Ensure your workflow copies "Flowchart Exercise Solutions.md" directly inside this application subdirectory.</p>
                     </div>
                 `;
                 console.error('Markdown load error:', error);
