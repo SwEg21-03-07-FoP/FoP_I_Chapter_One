@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Workspace</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background-color: #555;
+            transition: background 0.2s;
+        }
+        header a:hover {
+            background-color: #007bff;
+        }
+        iframe {
+            flex-grow: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- The 'target' attribute tells the browser to open the link inside the iframe below -->
+        <a href="./app-one/" target="app-frame">View Exercises</a>
+        <a href="./app-two/" target="app-frame">View Solutions</a>
+    </header>
+
+    <!-- 'src' points to app-one, making it the default page that loads -->
+    <iframe src="./app-one/" name="app-frame"></iframe>
+
+</body>
+</html>
