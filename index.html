@@ -42,8 +42,17 @@ summary{cursor:pointer;font-weight:700;color:var(--ac);font-family:system-ui}
 .tip{background:var(--code);border-left:4px solid var(--ac);border-radius:6px;padding:10px 16px;margin:14px 0;font-size:16px}.tip b:first-child{display:block;font:700 12px system-ui;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);margin-bottom:2px}dt{font-weight:700;margin-top:10px}dd{margin:0 0 0 18px;color:var(--mu)}
 footer{text-align:center;color:var(--mu);font:14px system-ui;padding:30px 20px}
 button{font:14px system-ui;background:var(--code);color:var(--fg);border:1px solid var(--bd);border-radius:14px;padding:4px 12px;cursor:pointer;float:right}
+svg.sym{width:70px;height:36px;stroke:var(--ac);fill:none;stroke-width:2}svg.sym text{fill:var(--ac);stroke:none;font:12px system-ui}
+.exq,.qz .q{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 16px;margin:12px 0}
+.exq textarea{width:100%;box-sizing:border-box;min-height:90px;background:var(--code);color:var(--fg);border:1px solid var(--bd);border-radius:8px;padding:8px;font:14px/1.5 ui-monospace,Menlo,monospace}
+.btn{font:14px system-ui;background:var(--ac);color:var(--bg);border:0;border-radius:16px;padding:6px 16px;cursor:pointer;margin-top:8px;float:none}.btn:disabled{opacity:.5;cursor:default}
+.msg{font:14px system-ui;color:var(--mu);margin-left:8px}.sol{margin-top:10px;border-top:1px dashed var(--bd);padding-top:8px}
+.qz button.o{float:none;display:block;width:100%;text-align:left;margin:6px 0;padding:8px 12px;border-radius:8px;font:15px system-ui;background:var(--code);color:var(--fg);border:1px solid var(--bd);cursor:pointer}
+.qz button.ok{border-color:#2e9b57;background:rgba(46,155,87,.2)}.qz button.no{border-color:#c0392b;background:rgba(192,57,43,.2)}
+.why{font:14px system-ui;color:var(--mu);margin-top:6px}
+ol.steps ul{list-style:disc;padding-left:20px;margin:6px 0 4px}ol.steps ul li{counter-increment:none;padding-left:0;margin:5px 0}ol.steps ul li:before{content:none}
 </style></head><body>
-<nav><b>Chapter 1 contents</b><a href="#sdlc">Program development</a><a href="#analysis">Problem analysis</a><a href="#algo">Algorithms</a><a href="#flow">Flowcharts</a><a href="#practice">Exercises</a><a href="#langs">Languages</a><a href="#paradigms">Paradigms</a><a href="#refs">Resources</a><a href="#gloss">Glossary</a></nav>
+<nav><b>Chapter 1 contents</b><a href="#sdlc">Program development</a><a href="#analysis">Problem analysis</a><a href="#algo">Algorithms</a><a href="#flow">Flowcharts</a><a href="#practice">Exercises</a><a href="#langs">Languages</a><a href="#paradigms">Paradigms</a><a href="#refs">Resources</a><a href="#gloss">Glossary</a><a href="#check">Self-check</a></nav>
 <header>
 <h1>Chapter One<br>Basic Concepts of Programming</h1>
 <p style="color:var(--mu);text-align:center">Problem analysis, algorithm design, pseudocode, flowcharts, and an overview of languages and paradigms.</p><div class="tip" style="margin-top:24px"><b>New to programming? Start here</b>You need no prior knowledge. Read each section in order, and look for the shaded boxes like this one: they explain the ideas in plain words with everyday examples. Do the exercises with pen and paper before opening the answers. This chapter has no real code yet. It teaches you to plan a solution, which is the most important programming skill. A short glossary and self-check questions are at the end.</div></header>
@@ -55,17 +64,64 @@ button{font:14px system-ui;background:var(--code);color:var(--fg);border:1px sol
 <div class="card"><h3>Software development life cycle</h3>The overall process of developing software, from planning to maintenance.</div></div>
 <div class="tip"><b>In plain words</b>A program is like a recipe. A recipe lists ingredients and exact steps, and a cook follows them without guessing. A computer is a very fast cook that does exactly what the steps say, nothing more. If a step is unclear or missing, it will not guess what you meant. That is why the instructions must be explicit and unambiguous.</div>
 <h3>Why study programming?</h3>
-<ul><li><b>Great job prospects:</b> computers are nearly everywhere.</li><li><b>It makes things easier:</b> chatting, appliances and car locks all run programs.</li><li><b>It develops thinking:</b> structured, logical, creative, and persistent.</li><li><b>You learn how to learn</b> and become more detail-oriented.</li></ul>
+<div class="grid">
+<div class="card"><h3>1. Great job prospects</h3><ul><li>Computers run phones, banks, hospitals and farms, so almost every organization needs people who can build and maintain software.</li><li><b>Example:</b> a mobile-money service, a bus-ticketing app and a hospital records system all need programmers, testers and analysts.</li></ul></div>
+<div class="card"><h3>2. It makes life easier</h3><ul><li>You can automate repetitive work.</li><li><b>Example:</b> a short program adds columns 2, 3 and 4 of a spreadsheet and finds the average every day, instead of doing it by hand.</li><li><b>Example:</b> an auto-reply that spots “Hi” in a message and answers “Hi! What’s up?”</li></ul></div>
+<div class="card"><h3>3. Structured, creative thinking</h3><ul><li>Programmers break a problem into small pieces before coding, a habit that helps in any area of life.</li><li><b>Example:</b> Facebook began as a way for students to find out about each other, and Google as a way to organize the world’s information. Both started with a problem that programming could solve.</li></ul></div>
+<div class="card"><h3>4. Persistence</h3><ul><li>You write, run and debug a program many times before it works, and learn that hard problems usually have a solution.</li><li><b>Example:</b> your program prints the wrong total. You trace it, find the counter started at 1 instead of 0, fix it and run it again.</li></ul></div>
+<div class="card"><h3>5. You learn how to learn</h3><ul><li>One missing symbol can break a program, so you become detail-oriented.</li><li>You learn to search for methods on your own.</li><li><b>Example:</b> finding out by yourself how to sort a list of names.</li></ul></div>
+<div class="card"><h3>6. Entrepreneurship</h3><ul><li>You can build your own ideas without paying for every step, and you understand programmers’ work when you hire them.</li><li><b>Example:</b> a shop owner builds a simple online order page.</li><li>Skills like SQL and HTML/CSS help marketers and designers too.</li></ul></div></div>
 <h3>Program development life cycle</h3>
 <ol class="steps"><li><b>Planning:</b> gather information from stakeholders; decide what is feasible.</li><li><b>Requirements analysis:</b> collect and document requirements.</li><li><b>Design:</b> create the architecture of the system and its elements.</li><li><b>Implementation:</b> build the software in a programming language.</li><li><b>Testing and integration:</b> evaluate quality; find and fix defects.</li><li><b>Maintenance:</b> update and support the software after release.</li></ol>
 
 <div class="tip"><b>In plain words</b>The life cycle is how a team builds software without chaos, much like building a house: decide what you can afford (planning), ask the owner what they need (requirements), draw the plans (design), build (implementation), inspect (testing), and repair and improve over the years (maintenance). Real projects often loop back to earlier steps when something changes. As a beginner, you will mostly practice the middle steps on small programs.</div>
 <h3>A deeper look at the life cycle</h3>
-<p>Professional developers group the work into three overlapping phases: <b>development and design</b> (analysis, design, coding, testing), <b>documentation</b>, and <b>maintenance</b>. They overlap in time. Documentation starts during design and continues until the program is retired.</p>
-<details><summary>Feasibility study: is the project worth doing?</summary>Before building a large system, the team checks four things. <b>Organizational:</b> does it support the organization's goals? <b>Economic:</b> will it save money or raise profit? <b>Technical:</b> do we have the hardware, software and network to run it? <b>Operational:</b> will users and management accept it, and does it meet customer and government requirements?</details>
-<details><summary>Testing and debugging</summary><b>Testing</b> checks whether the program is correct. <b>Debugging</b> means locating, correcting and re-checking an error (a bug). Testing every possible case is impossible for most programs, so we choose test data carefully, and good teams plan their test data before writing the code. Testing happens in levels: <b>unit testing</b> (each small part alone), <b>integration testing</b> (parts combined, to check they work together), <b>system testing</b> (the whole system on its real platform) and <b>acceptance testing</b> (does it do what the user needs?).</details>
-<details><summary>Documentation: five key documents</summary>1. The algorithm and its changes. 2. A program description. 3. A well-commented program listing. 4. Sample test runs. 5. A users' manual. Without documentation, work gets lost and tasks must be repeated.</details>
-<details><summary>Maintenance: usually the longest phase</summary>Development may take days or months, but maintenance can last years or decades. Programs are changed because of bugs found later, new user needs, organizational change, or new technology. Good documentation makes maintenance faster and cheaper.</details>
+<p>The work is organized into three overlapping phases:</p>
+<ul><li><b>Development and design:</b> analysis, design, coding and testing.</li><li><b>Documentation:</b> starts during design and continues to the end.</li><li><b>Maintenance:</b> keeps the program useful until it is retired.</li></ul>
+<details><summary>Feasibility study: is the project worth doing?</summary><ul><li><b>Organizational:</b> does it support the organization’s goals?</li><li><b>Economic:</b> will it save money or raise income?</li><li><b>Technical:</b> do we have the hardware, software and network?</li><li><b>Operational:</b> will users and management accept it? Does it meet customer and government requirements?</li></ul></details>
+<details><summary>Requirements analysis</summary><ul><li>Find the input, processing and output (what must be done, not how).</li><li>Talk to the users and involve them throughout.</li><li>Record the requirements in a document.</li></ul></details>
+<details><summary>Design</summary><ul><li>Design the solution as an algorithm: the blueprint of the system.</li><li>Review it with users before coding.</li><li>Catches mistakes before they are built in.</li></ul></details>
+<details><summary>Coding (implementation)</summary><ul><li>Translate each algorithm step into the chosen language.</li><li>Also set up databases and networks.</li><li>Train the people who will use it.</li></ul></details>
+<details><summary>Testing and debugging</summary><ul><li><b>Testing</b> checks whether the program is correct; <b>debugging</b> finds and fixes the errors (bugs).</li><li>Testing every case is impossible, so choose test data carefully. Good teams plan test data before coding.</li><li><b>Unit testing:</b> each small part on its own.</li><li><b>Integration testing:</b> parts combined, to check they work together.</li><li><b>System testing:</b> the whole system on its real platform.</li><li><b>Acceptance testing:</b> does it do what the user needs?</li></ul></details>
+<details><summary>Documentation: five key documents</summary><ul><li>The algorithm and its changes</li><li>A program description</li><li>A well-commented program listing</li><li>Sample test runs</li><li>A users’ manual</li></ul></details>
+<details><summary>Maintenance: usually the longest phase</summary><ul><li><b>Repair</b> bugs found later.</li><li><b>Revise</b> for new needs, such as organizational change.</li><li><b>Upgrade</b> with new features or new technology.</li><li>Development takes days or months; maintenance can last years. Good documentation makes it cheaper.</li></ul></details>
+<h3>Real-world example: a school results system</h3>
+<p>A school wants teachers to enter students’ marks and print report cards automatically, instead of calculating everything by hand. Here is how each phase of the life cycle applies.</p>
+<ol class="steps">
+<li><b>Planning and feasibility</b><ul>
+<li><b>What happens:</b> before anyone writes code, the team decides whether the project is worth doing.</li>
+<li><b>In the school:</b> the principal and teachers explain the problem. Working out totals and averages by hand takes hours, and mistakes are common.</li>
+<li><b>Feasibility questions:</b> Do we have enough computers? Can the school afford the project? Will teachers actually use it?</li>
+<li><b>Why it matters:</b> it stops the school from spending time and money on a system nobody can use.</li></ul></li>
+<li><b>Requirements analysis</b><ul>
+<li><b>What happens:</b> the team finds out exactly <i>what</i> the program must do, not <i>how</i>.</li>
+<li><b>Input:</b> each student’s name and marks per subject.</li>
+<li><b>Process:</b> add the marks (total), divide by the number of subjects (average), then rank the students.</li>
+<li><b>Output:</b> a printed report card for each student.</li>
+<li><b>Talking to users:</b> teachers say they must be able to correct a wrong mark, and parents want a paper copy.</li>
+<li><b>Why it matters:</b> everything is written in a requirements document. If the team misunderstands the need now, it will build the wrong thing.</li></ul></li>
+<li><b>Design</b><ul>
+<li><b>What happens:</b> the solution is planned on paper first, like an architect’s drawing before a house is built.</li>
+<li><b>The algorithm:</b> read the marks, then total = sum of the marks, then average = total ÷ number of subjects. If average is 50 or more, the result is “pass”, otherwise “fail”.</li>
+<li><b>Pictures:</b> draw a flowchart of these steps and sketch what the report card will look like.</li>
+<li><b>Review:</b> teachers look at the design. Fixing a drawing is far cheaper than fixing a finished program.</li></ul></li>
+<li><b>Implementation (coding)</b><ul>
+<li><b>What happens:</b> programmers turn each design step into instructions in a programming language.</li>
+<li><b>In the school:</b> they also build a database, which is the place where names and marks are stored.</li>
+<li><b>Getting ready to use it:</b> install the program on the school computers and train the teachers. A program nobody knows how to use is not useful.</li></ul></li>
+<li><b>Testing</b><ul>
+<li><b>What happens:</b> the team tries the program with sample data whose correct answer is already known. If the program gives a different answer, it has found a bug.</li>
+<li><b>Unit test (one small part):</b> marks 60, 70 and 80 should give an average of 70.</li>
+<li><b>Integration test (parts together):</b> marks typed into the entry screen must appear correctly on the report card.</li>
+<li><b>System test (the whole thing):</b> run all 500 students on the school’s own computer. Is it fast enough?</li>
+<li><b>Acceptance test (the user decides):</b> one real class of teachers tries it and confirms it does what they need.</li></ul></li>
+<li><b>Maintenance</b><ul>
+<li><b>What happens:</b> software is never really “finished”. After the school starts using it, it still needs care.</li>
+<li><b>Repair:</b> a bug is found when a teacher leaves a mark blank. The team fixes it.</li>
+<li><b>Revise:</b> the education authority changes the grading scale, so the program is updated.</li>
+<li><b>Upgrade:</b> the school asks for a new feature, such as sending results to parents by text message.</li>
+<li><b>Why it matters:</b> this phase can last for many years, much longer than building the program.</li></ul></li></ol>
+<p style="color:var(--mu)">Notice that documentation (manual, test runs) is produced along the way, not at the end.</p>
 <h2 id="analysis">2. Problem analysis</h2>
 <p>A problem is the gap between the existing and the desired situation. <b>Problem solving</b> transforms a problem description into a solution, and programming is a form of problem solving:</p>
 <ol class="steps"><li><b>Problem analysis:</b> understand the problem; identify input and output.</li><li><b>Algorithm design:</b> design the solution.</li><li><b>Coding:</b> write a program matching the algorithm's steps.</li></ol>
@@ -74,7 +130,7 @@ button{font:14px system-ui;background:var(--code);color:var(--fg);border:1px sol
 
 <div class="tip"><b>Example: average of two numbers</b><b>Input:</b> two numbers, say 6 and 10. <b>Process:</b> add them, then divide by 2. <b>Output:</b> 8. Whenever you meet a new problem, write down these three things before anything else. Many beginners skip this and start coding too early, and then get stuck because they are not sure what the program should produce.</div>
 <h3>More on analysis</h3>
-<p>Analysis has two parts. <b>Basic analysis</b> (always needed) extracts the input, the processing and the output. If that is not enough, do an <b>extended analysis</b>: gather more information until you fully understand what is asked. At this stage, focus on <b>what</b> must be done, not <b>how</b>. Record the requirements in a document, and get the users involved.</p>
+<ul><li><b>Basic analysis</b> (always needed): extract the input, processing and output.</li><li><b>Extended analysis</b> (if basic is not enough): gather more information until you fully understand the problem.</li><li>Focus on <b>what</b> must be done, not <b>how</b>.</li><li>Record the requirements and involve the users.</li></ul>
 <h3>Two ways to attack a big problem</h3>
 <div class="grid"><div class="card"><h3>Top-down</h3>Start with the whole problem and split it into parts. If a part is still too big, split it again. Solve the small parts, then merge the solutions. Example: <i>class average</i> splits into read the marks, add them, divide by the count, print.</div><div class="card"><h3>Bottom-up</h3>Start by solving the smallest practical parts, then merge them step by step into the final solution. Example: to compute M = &radic;4 + &#8731;4 + &#8308;&radic;4, first find each root, then add the three results.</div></div>
 <p style="color:var(--mu)">The main difference is splitting versus merging.</p>
@@ -90,7 +146,7 @@ button{font:14px system-ui;background:var(--code);color:var(--fg);border:1px sol
 
 <div class="tip"><b>Example: an algorithm for making tea</b>1. Boil water. 2. Put a tea bag in a cup. 3. Pour the water into the cup. 4. Wait 3 minutes. 5. Remove the tea bag. 6. Stop.<br>Check it against the characteristics: every step is clear (definiteness), it ends (finiteness), its inputs are water and a tea bag, its output is a cup of tea, and each step is something you can actually do (effectiveness). An instruction like "make it taste nice" would fail, because it is not definite. A step like "keep stirring forever" would fail, because it never ends.<br><br><b>Pseudocode or flowchart?</b>They describe the same algorithm. Pseudocode is written text and is quick to write. A flowchart is a picture and is easier to follow at a glance. There is no single correct format, so aim for clear, simple steps.</div>
 <h3>What makes a good algorithm?</h3>
-<p>Besides the five characteristics above, a good algorithm is <b>precise, simple, correct and efficient</b> (it does not waste time or memory). One problem can have many algorithms, so choose one that is easy to maintain and efficient.</p>
+<ul><li><b>Precise:</b> no unclear steps.</li><li><b>Simple:</b> easy to follow.</li><li><b>Correct:</b> right result for all valid inputs.</li><li><b>Efficient:</b> does not waste time or memory.</li><li>One problem can have many algorithms. Choose one that is easy to maintain and efficient.</li></ul>
 <h3>Pseudocode: less formal and more formal</h3>
 <p>Pseudocode has no fixed standard. It is not executable, and you may write it informally or formally. Here is the same task, <i>read two integers and print their sum</i>, written both ways. The arrow ← means assign.</p>
 <div class="grid"><pre>Less formal
@@ -124,17 +180,10 @@ else
 Print Big</pre></div>
 <p style="color:var(--mu)">Using &gt;= means ties (for example 5, 5, 3) still give the right answer.</p>
 <h2 id="flow">4. Flowchart symbols</h2>
-<div class="tw"><table><tr><th>Symbol</th><th>Usage</th></tr>
-<tr><td>Start / Stop (terminal)</td><td>Beginning and end points.</td></tr>
-<tr><td>Process</td><td>An instruction or operation to carry out.</td></tr>
-<tr><td>Decision</td><td>A yes/no question with two or more alternatives.</td></tr>
-<tr><td>Input / Output</td><td>Read data or print a result.</td></tr>
-<tr><td>Connector</td><td>Jump between points, avoiding crossing lines.</td></tr>
-<tr><td>Flow arrow</td><td>Shows the direction of instructions.</td></tr></table></div>
-
-<div class="tip"><b>How to read a flowchart</b>Start at the oval marked Start and follow the arrows. Rectangles are actions, slanted boxes are reading or printing, and a diamond is a question with two exits (Yes and No). If an arrow leads back to an earlier box, you have a loop: those steps repeat. Practice by tracing a flowchart with your finger and a sample input.</div>
-<h3>More about flowcharts</h3>
-<p>There are two kinds. A <b>system flowchart</b> shows the overall logic of a data-processing system. A <b>program flowchart</b> shows the operations and decisions inside one program, and that is the kind used in this chapter. Like pseudocode, a flowchart does not depend on any language, so one flowchart can be translated into several.</p>
+<div class="tw"><table><tr><th>Name</th><th>Symbol</th><th>Usage</th></tr><tr><td>Start / Stop (terminal)</td><td><svg class="sym" viewBox="0 0 70 36"><rect x="3" y="6" width="64" height="24" rx="12"/></svg></td><td>The beginning and end points.</td></tr><tr><td>Process</td><td><svg class="sym" viewBox="0 0 70 36"><rect x="3" y="6" width="64" height="24"/></svg></td><td>An instruction or operation to carry out.</td></tr><tr><td>Decision</td><td><svg class="sym" viewBox="0 0 70 36"><polygon points="35,2 67,18 35,34 3,18"/></svg></td><td>A yes/no question with two exits (True and False).</td></tr><tr><td>Input / Output</td><td><svg class="sym" viewBox="0 0 70 36"><polygon points="14,6 67,6 56,30 3,30"/></svg></td><td>Read data or print a result.</td></tr><tr><td>Connector (on page)</td><td><svg class="sym" viewBox="0 0 70 36"><circle cx="35" cy="18" r="13"/><text x="31" y="22">A</text></svg></td><td>Jump between points on the same page, avoiding crossing lines.</td></tr><tr><td>Connector (off page)</td><td><svg class="sym" viewBox="0 0 70 36"><polygon points="12,4 58,4 58,22 35,34 12,22"/></svg></td><td>The chart continues on another page.</td></tr><tr><td>Flow arrow</td><td><svg class="sym" viewBox="0 0 70 36"><line x1="5" y1="18" x2="58" y2="18"/><polygon points="65,18 56,13 56,23" fill="currentColor" style="fill:var(--ac)"/></svg></td><td>Connects symbols and shows the direction of flow.</td></tr></table></div>
+<h3>Two kinds of flowchart</h3>
+<ul><li><b>System flowchart:</b> the overall logic of a data-processing system.</li><li><b>Program flowchart:</b> the operations and decisions inside one program. This chapter uses this kind.</li><li>Like pseudocode, a flowchart does not depend on any language.</li></ul>
+<h3>Decision and connectors</h3>
 <ul><li><b>Decision:</b> a diamond holding a question. It has two exits (True and False), and only one is followed each time.</li><li><b>Connectors:</b> a small circle with a letter links two points on the same page. A pentagon-like shape shows that the chart continues on another page.</li></ul>
 <h3>Conventions to follow</h3>
 <ul><li>Initialize sums and counters to zero.</li><li>Show assignment with a left arrow (sum ← sum + x).</li><li>Mark the beginning and end of every decision and every repetition, and state its condition.</li><li>Clearly indicate where the algorithm ends.</li></ul>
@@ -155,7 +204,8 @@ while counter &lt;= 30
 print sum
 End</pre>
 <h3>Loops: the four parts</h3>
-<p>A loop repeats steps until a condition says stop. A well-formed loop has four parts: <b>initialization</b> (set starting values), <b>computation</b> (the work done each time), a <b>test</b> (every loop must have a way out, or it runs forever) and an <b>update</b> (change the counter so the test can eventually fail). In Problem 3, counter = 2 is the initialization, sum = sum + counter is the computation, counter &lt;= 30 is the test, and counter = counter + 2 is the update.</p>
+<p>A loop repeats steps until a condition says stop. A well-formed loop has four parts:</p>
+<ul><li><b>Initialization:</b> set starting values (Problem 3: counter = 2, sum = 0).</li><li><b>Computation:</b> the work done each pass (sum = sum + counter).</li><li><b>Test:</b> every loop needs a way out, or it runs forever (counter &lt;= 30).</li><li><b>Update:</b> change the counter so the test can eventually fail (counter = counter + 2).</li></ul>
 <h3>Worked example: average of a set of values</h3>
 <pre>total ← 0
 tally ← 0
@@ -176,45 +226,8 @@ Print MAX, MIN</pre>
 <p style="color:var(--mu)">Idea: assume the first number is both the largest and smallest, then compare each new number with the best so far.</p>
 <div class="tip"><b>Trace Problem 3 by hand</b>To check an algorithm, act as the computer and track each variable on paper. This is called a trace table. The loop begins with counter = 2 and sum = 0. Each pass adds the counter to the sum, then adds 2 to the counter. Before every pass, the computer asks: is the counter still 30 or less?<div class="tw"><table><tr><th>Pass</th><th>counter (before)</th><th>sum (after)</th></tr><tr><td>1</td><td>2</td><td>2</td></tr><tr><td>2</td><td>4</td><td>6</td></tr><tr><td>3</td><td>6</td><td>12</td></tr><tr><td>4</td><td>8</td><td>20</td></tr><tr><td>...</td><td>...</td><td>...</td></tr><tr><td>15</td><td>30</td><td>240</td></tr></table></div>After pass 15 the counter becomes 32, the question "is counter &lt;= 30?" is answered No, and the loop stops. The program prints 240. Always set your starting values (initialize) before the loop, or the result will be wrong.<br><br><b>A method for any exercise:</b>1. Write input, process and output. 2. Write the steps in pseudocode. 3. Test with a small example by hand. 4. Only then draw the flowchart.</div>
 <h3>Try it yourself</h3>
-<p>Write pseudocode and draw a flowchart for each, then check yourself.</p>
-<details><summary>1. Is a number positive or negative?</summary><pre>Start
-Read n
-if n &gt;= 0 then print "positive"
-else print "negative"
-End</pre></details>
-<details><summary>2. Sum of 1 to n (n = 5 gives 15)</summary><pre>Start
-Read n
-sum = 0, i = 1
-while i &lt;= n
-    sum = sum + i
-    i = i + 1
-print sum
-End</pre></details>
-<details><summary>3. Bank balance with transactions (ends at 0)</summary>Read the initial balance. Then loop: read a transaction t; if t = 0, stop; otherwise add t to the balance (positive = credit, negative = debit). Finally print the balance. See the slide handout for the full problem statement.</details>
-<details><summary>4. Even or odd? (worked)</summary><pre>Start
-Read Num
-if Num % 2 == 0 then
-    print "even"
-else
-    print "odd"
-Stop</pre>% gives the remainder after division. A remainder of 0 means the number divides evenly by 2. In the flowchart, the True exit of the diamond leads to "even".</details>
-<details><summary>5. Sum of N numbers entered by the user</summary><pre>Read N
-sum ← 0, count ← 0
-while count &lt; N
-    Read Num
-    sum ← sum + Num
-    count ← count + 1
-Print sum</pre></details>
-<details><summary>6. LCM of two numbers</summary>Use the greatest common divisor (GCD) by repeated remainders:<pre>Read M, N
-A ← M, B ← N
-while N &gt; 0
-    Temp ← M % N
-    M ← N
-    N ← Temp
-GCD ← M
-LCM ← A * B / GCD
-Print LCM</pre>Trace it with M = 12, N = 8: the loop gives (8, 4), then (4, 0), so GCD = 4 and LCM = 12 * 8 / 4 = 24.</details>
-
+<p>Write your own pseudocode or steps first. The model solution unlocks only after you submit an attempt.</p>
+<div id="ex"></div>
 <h2 id="langs">6. Programming languages</h2>
 <p>A programming language is an artificial language used to control a computer. Like natural languages, it is defined by syntactic and semantic rules. <b>Low-level:</b> machine and assembly. <b>High-level:</b> C, C++, Java.</p>
 <div class="tw"><table><tr><th>Gen.</th><th>Type</th><th>Traits</th></tr>
@@ -226,11 +239,11 @@ Print LCM</pre>Trace it with M = 12, N = 8: the loop gives (8, 4), then (4, 0), 
 <p style="color:var(--mu)">Progress runs from machine-oriented to human-oriented language. There are over 2,400 programming languages.</p>
 
 <h3>The five generations in more detail</h3>
-<details><summary>1st generation: machine language (1940s)</summary>The only language a computer understands directly. Each instruction is zeros and ones, made of an <b>op code</b> (what to do) and an <b>address</b> (where the data is). It is fast and memory-efficient and gives full control of the hardware, but it is very hard to write, and it differs on every type of computer.</details>
-<details><summary>2nd generation: assembly language (early 1950s)</summary>Uses short symbols (mnemonics) such as ADD or LOAD instead of binary. A program called an <b>assembler</b> translates it to machine code. It is easier than binary but is still machine-dependent and not portable, and it is used mainly in system software.</details>
-<details><summary>3rd generation: high-level languages (1950s to 1970s)</summary>English-like and independent of the machine, so the same program can run on different computers with little change. You can write statements like Z = A + B. Programs must be translated to machine code before running. These are <b>procedural</b>: you state both what to do and how. Examples: C++, FORTRAN, COBOL, BASIC.</details>
-<details><summary>4th generation (since late 1970s)</summary>Simple, application-oriented and <b>non-procedural</b>: you say what result you want, not the steps. Easier to write, but you have less control. Examples: SQL, report generators, application generators.</details>
-<details><summary>5th generation (1990s)</summary>Close to human speech and used in artificial intelligence and expert systems, for example asking for a customer's sales figure for a given year. They need powerful hardware and software to interpret the commands.</details>
+<details><summary>1st generation: machine language (1940s)</summary><ul><li>The only language a computer understands directly: zeros and ones.</li><li>Each instruction has an op code (what to do) and an address (where the data is).</li><li>Fast, memory-efficient, full hardware control.</li><li>Very hard to write, and different on each type of computer.</li></ul></details>
+<details><summary>2nd generation: assembly language (early 1950s)</summary><ul><li>Short symbols (mnemonics) such as ADD or LOAD instead of binary.</li><li>An assembler translates it to machine code.</li><li>Easier than binary, but still machine-dependent and not portable.</li><li>Used mainly in system software.</li></ul></details>
+<details><summary>3rd generation: high-level languages (1950s to 1970s)</summary><ul><li>English-like and machine-independent, for example Z = A + B.</li><li>Easier to write and debug, but must be translated to machine code.</li><li>Procedural: you say what to do and how.</li><li>Examples: C++, FORTRAN, COBOL, BASIC.</li></ul></details>
+<details><summary>4th generation (since late 1970s)</summary><ul><li>Non-procedural: you state the result you want, not the steps.</li><li>Easier to write, but you have less control over how it is done.</li><li>Examples: SQL, report generators, application generators.</li></ul></details>
+<details><summary>5th generation (1990s)</summary><ul><li>Close to human speech, such as “get me a customer’s sales figure for last year”.</li><li>Used in artificial intelligence and expert systems.</li><li>Needs powerful hardware and software.</li></ul></details>
 <p style="color:var(--mu)">The higher the level, the easier a language is for people. Machine and assembly languages depend on the computer. High-level languages do not.</p>
 <div class="tip"><b>In plain words</b>The computer only understands machine language, which is 0s and 1s. Humans write in higher-level languages that are easier to read, and special programs (compilers or interpreters) translate them for the machine. Which language should you pick? For this course, any popular one works: the thinking skills in this chapter apply to all of them. Think of languages as different tools for the same job, like different brands of hammer.</div>
 <h2 id="paradigms">7. Programming paradigms</h2>
@@ -242,13 +255,12 @@ Print LCM</pre>Trace it with M = 12, N = 8: the loop gives (8, 4), then (4, 0), 
 <tr><td>Object-oriented</td><td>Objects manipulated through methods</td><td>Objects + messages</td><td>C++, C#, Java, PHP, Python</td></tr></table></div>
 
 <h3>The paradigms in more detail</h3>
-<details><summary>Unstructured (sequential) programming</summary>Commands run in order, usually one per line, and execution can jump to any numbered or labeled line. The whole program is one block, so it is hard to change and debug: a bug means checking everything.</details>
-<details><summary>Procedural programming</summary>A <b>procedure</b> (also called routine, subroutine, method or function) is a named set of steps you can call from anywhere. After it finishes, control returns to where it was called. Benefits: reuse of the same code without copying, easier tracking than GO TO jumps (which can create tangled spaghetti code), and easier error-finding because a procedure that is correct stays correct. Examples: C, Pascal, FORTRAN.</details>
-<details><summary>Modular (structured) programming</summary>A discipline within procedural programming. Procedures with a common purpose are grouped into <b>modules</b>, each of which can be written and tested on its own. <b>Scoping</b> stops one procedure from touching another's variables, which keeps modules independent.</details>
-<details><summary>Functional programming</summary>Computation is the evaluation of mathematical functions. Values are not changed; they are turned into new values. The same input always gives the same output, with no side effects, and recursion is common. Examples: Lisp, Scheme.</details>
-<details><summary>Logic programming</summary>You state facts and rules, and the system works out the answers. Example in Prolog: brother(X,Y) is true if X and Y have the same father F and the same mother M, and X is male.<pre>brother(X,Y) :- father(F,X), father(F,Y),
-                mother(M,X), mother(M,Y), male(X).</pre></details>
-<details><summary>Object-oriented programming (OOP)</summary>A program is a collection of cooperating <b>objects</b>. Each object bundles its data with the functions that work on it (<b>encapsulation</b>), and objects interact by sending messages. Benefits: reuse through inheritance, data hiding, and easy mapping of real-world things to program parts. Examples: Java, C++, Smalltalk.</details>
+<details><summary>Unstructured (sequential)</summary><ul><li>Commands run in order, one per line, and execution can jump to any numbered or labeled line.</li><li>The whole program is one block, so it is hard to change and debug.</li></ul></details>
+<details><summary>Procedural</summary><ul><li>A <b>procedure</b> (routine, subroutine, method or function) is a named set of steps you can call from anywhere, and control returns to the caller afterwards.</li><li>Code can be reused without copying.</li><li>Easier to follow than GO TO jumps, which can create tangled “spaghetti code”.</li><li>A correct procedure stays correct, so errors are easier to find.</li><li>Examples: C, Pascal, FORTRAN.</li></ul></details>
+<details><summary>Modular (structured)</summary><ul><li>A discipline within procedural programming.</li><li>Procedures with a common purpose are grouped into <b>modules</b>, each written and tested on its own.</li><li><b>Scoping</b> stops one procedure from touching another’s variables.</li></ul></details>
+<details><summary>Functional</summary><ul><li>Computation is the evaluation of mathematical functions.</li><li>Values are not changed; they are turned into new values.</li><li>Same input always gives the same output, with no side effects. Recursion is common.</li><li>Examples: Lisp, Scheme.</li></ul></details>
+<details><summary>Logic</summary><ul><li>You state facts and rules; the system works out the answers.</li><li>Prolog example: X is the brother of Y if they share a father F and a mother M, and X is male.</li></ul><pre>brother(X,Y) :- father(F,X), father(F,Y),\n                mother(M,X), mother(M,Y), male(X).</pre></details>
+<details><summary>Object-oriented (OOP)</summary><ul><li>A program is a collection of cooperating <b>objects</b>.</li><li>Each object bundles data with the functions that use it (<b>encapsulation</b>), and objects send messages to each other.</li><li>Benefits: reuse through inheritance, data hiding, and an easy match to real-world things.</li><li>Examples: Java, C++, Smalltalk.</li></ul></details>
 <div class="tw"><table><tr><th>Procedure-oriented (POP)</th><th>Object-oriented (OOP)</th></tr>
 <tr><td>Program divided into procedures</td><td>Program divided into objects</td></tr>
 <tr><td>Global data shared by many functions</td><td>Data tied to the functions that use it and protected</td></tr>
@@ -260,19 +272,49 @@ Print LCM</pre>Trace it with M = 12, N = 8: the loop gives (8, 4), then (4, 0), 
 <p>You practiced analyzing problems, writing pseudocode, and constructing flowcharts to turn computational problems into solutions.</p>
 <h2 id="gloss">Glossary for beginners</h2>
 <dl><dt>Source code</dt><dd>The text of a program, written by a programmer.</dd><dt>Debugging</dt><dd>Finding and fixing mistakes (bugs) in a program.</dd><dt>Stakeholder</dt><dd>Anyone affected by or interested in the software, such as users, clients and managers.</dd><dt>Variable</dt><dd>A named place that stores a value, such as sum or counter.</dd><dt>Initialize</dt><dd>Give a variable its starting value.</dd><dt>Loop</dt><dd>A set of steps that repeats while a condition is true.</dd><dt>Syntax</dt><dd>The spelling and grammar rules of a language.</dd><dt>Semantics</dt><dd>What a statement means or does.</dd><dt>Feasibility study</dt><dd>An early check of whether a project is worth doing (organizational, economic, technical, operational).</dd><dt>Pseudocode</dt><dd>An informal, language-independent way to write an algorithm in plain steps.</dd><dt>Procedure (function)</dt><dd>A named set of steps you can run from anywhere in a program.</dd><dt>Module</dt><dd>A group of related procedures that can be written and tested separately.</dd><dt>Encapsulation</dt><dd>Keeping data and the functions that use it together inside an object, hidden from outside.</dd><dt>Top-down / bottom-up</dt><dd>Splitting a big problem into parts, or building a solution from the smallest parts.</dd><dt>Heuristic</dt><dd>A rule of thumb or guess. Computers need exact steps, not guesses.</dd></dl>
-<h2>Self-check questions</h2>
-<details><summary>1. What three questions define a problem in problem analysis?</summary>Input (what data do we have), process (how do we get from the data to the result), output (what result is required).</details>
-<details><summary>2. Name two characteristics of a good algorithm.</summary>Any two of: definiteness, finiteness, input, output, effectiveness. For example, it must be clear, and it must end.</details>
-<details><summary>3. When would you use a diamond in a flowchart?</summary>For a decision: a yes/no question where the flow goes one of two ways.</details>
-<details><summary>4. Is Python a low-level or high-level language?</summary>High-level. Machine and assembly languages are low-level.</details>
-<details><summary>5. Why analyze a problem before coding?</summary>To understand what is really needed and to check the solution idea before spending time building it.</details>
-<details><summary>6. What is the difference between a system flowchart and a program flowchart?</summary>A system flowchart shows the overall logic of a data-processing system. A program flowchart shows the operations and decisions inside one program.</details>
-<details><summary>7. Write the steps to swap the contents of two cups of liquid.</summary>Use a third, empty cup. 1. Pour cup A into cup C. 2. Rinse cup A. 3. Pour cup B into cup A. 4. Rinse cup B. 5. Pour cup C into cup B. The third cup works like a temporary variable (temp) when you swap two values in a program.</details>
-<details><summary>8. Name the four parts of a loop.</summary>Initialization, computation, test and update.</details>
-<details><summary>9. Which approach splits a problem down, and which merges parts up?</summary>Top-down splits a big problem into smaller parts. Bottom-up solves the smallest parts first and merges them.</details>
-<details><summary>10. Practice: write steps to count how many times the letter e appears in a sentence.</summary>Set count ← 0. For each letter in the sentence: if the letter is e, then count ← count + 1. When the letters run out, print count. Also try: find the first occurrence of the name JEAN in a list of names, and think about how an alphabetical list would let you stop earlier.</details>
+<h2 id="check">Self-check quiz</h2>
+<p>Pick an answer. You will see at once whether it is right, and why.</p>
+<div class="qz"><p class="msg" id="score"></p><div id="quiz"></div><button class="btn" id="rst">Start again</button></div>
 <h2 id="refs">Reading resources</h2>
 <ul><li>Savitch, <i>Problem Solving with C++</i>, 10th ed., 2018 (Chapters 1–3).</li><li>Zak, <i>An Introduction to Programming with C++</i>, 8th ed., Cengage, 2016 (Chapters 2–3).</li></ul>
 </main>
 <footer>Fundamentals of Programming I · Chapter 1</footer>
+<script>
+(function(){
+var EX=[
+{t:'1. Positive or negative?',p:'Write pseudocode to tell whether a number is positive or negative.',s:'<pre>Start\nRead n\nif n &gt; 0 then print “positive”\nelse if n &lt; 0 then print “negative”\nelse print “zero”\nStop</pre>',k:'did you handle zero? Test with 5, -3 and 0.'},
+{t:'2. Sum from 1 to n',p:'Read n and display the sum of the numbers from 1 up to n. For n = 5 the output is 15.',s:'<pre>Start\nRead n\nsum ← 0, i ← 1\nwhile i &lt;= n\n    sum ← sum + i\n    i ← i + 1\nPrint sum\nStop</pre>',k:'did you initialize sum and i, and does the loop end?'},
+{t:'3. Bank balance',p:'Read an initial balance, then a sequence of transactions (positive = credit, negative = debit). Input ends with a 0. Print the final balance.',s:'<pre>Read balance\nRead t\nwhile t != 0\n    balance ← balance + t\n    Read t\nPrint balance</pre>',k:'does 0 end the input, and is the balance printed at the end?'},
+{t:'4. Even or odd?',p:'Write pseudocode to tell whether a number is even or odd.',s:'<pre>Start\nRead Num\nif Num % 2 == 0 then\n    print “even”\nelse\n    print “odd”\nStop</pre>',k:'did you use the remainder (%) and compare it with 0?'},
+{t:'5. Sum of N numbers',p:'Read N, then read N numbers and print their sum.',s:'<pre>Read N\nsum ← 0, count ← 0\nwhile count &lt; N\n    Read Num\n    sum ← sum + Num\n    count ← count + 1\nPrint sum</pre>',k:'did you count the inputs so the loop stops?'},
+{t:'6. LCM of two numbers',p:'Write pseudocode to find the least common multiple of two numbers.',s:'<pre>Read M, N\nA ← M, B ← N\nwhile N &gt; 0\n    Temp ← M % N\n    M ← N\n    N ← Temp\nGCD ← M\nLCM ← A * B / GCD\nPrint LCM</pre>For M = 12, N = 8 the loop gives (8, 4), then (4, 0), so GCD = 4 and LCM = 24.',k:'did you keep copies of M and N before the loop changes them?'}];
+var ex=document.getElementById('ex');
+EX.forEach(function(e){var d=document.createElement('div');d.className='exq';
+d.innerHTML='<b>'+e.t+'</b><p style="margin:.3em 0">'+e.p+'</p><textarea placeholder="Write your steps here…"></textarea><button class="btn">Submit my answer</button><span class="msg"></span><div class="sol" hidden><b>Model solution</b>'+e.s+'<p><i>Compare with yours:</i> '+e.k+'</p></div>';
+var b=d.querySelector('button'),t=d.querySelector('textarea'),m=d.querySelector('.msg'),s=d.querySelector('.sol');
+b.onclick=function(){if(t.value.trim().length<20){m.textContent='Write a few steps first, then submit.';return}
+m.textContent='';s.hidden=false;b.disabled=true;t.readOnly=true;};
+ex.appendChild(d);});
+var Q=[
+{q:'Which three questions define a problem in problem analysis?',o:['Input, process, output','Start, stop, loop','Design, code, test','Who, when, where'],a:0,w:'Analysis asks what data we have, how to get from it to the result, and what result is needed.'},
+{q:'An algorithm that never stops breaks which characteristic?',o:['Definiteness','Finiteness','Input','Output'],a:1,w:'An algorithm must terminate after a finite number of steps.'},
+{q:'Which flowchart symbol is used for a yes/no decision?',o:['Oval','Rectangle','Diamond','Circle'],a:2,w:'The diamond holds a question and has True and False exits.'},
+{q:'Which of these is a high-level language?',o:['Machine language','Assembly language','C++','Binary code'],a:2,w:'C++ is high-level. Machine and assembly languages are low-level.'},
+{q:'Why analyze a problem before coding?',o:['To make the program run faster','To understand what is really needed and check the idea first','To skip testing','To avoid documentation'],a:1,w:'Analysis prevents building the wrong thing.'},
+{q:'Which approach starts by splitting the whole problem into smaller parts?',o:['Top-down','Bottom-up','Sequential','Random'],a:0,w:'Top-down splits; bottom-up solves the smallest parts first and merges them.'},
+{q:'Which is NOT one of the four parts of a loop?',o:['Initialization','Test','Compilation','Update'],a:2,w:'The four parts are initialization, computation, test and update.'},
+{q:'Which testing level checks each small part on its own?',o:['Unit testing','Integration testing','System testing','Acceptance testing'],a:0,w:'Unit testing is the first level and tests individual units.'},
+{q:'Which life cycle phase usually lasts longest?',o:['Planning','Design','Testing','Maintenance'],a:3,w:'Maintenance can continue for years or decades.'},
+{q:'To swap the contents of two cups, what do you need?',o:['Nothing extra','A third cup to hold one temporarily','Two more cups','A loop'],a:1,w:'The third cup acts like a temporary variable (temp) when swapping two values.'}];
+var qz=document.getElementById('quiz'),sc=document.getElementById('score'),n,r;
+function upd(){sc.textContent='Score: '+r+' / '+Q.length+'  ·  answered '+n;}
+function build(){qz.innerHTML='';n=0;r=0;upd();
+Q.forEach(function(q,i){var d=document.createElement('div');d.className='q';d.innerHTML='<b>'+(i+1)+'. '+q.q+'</b>';
+var w=document.createElement('div');w.className='why';w.hidden=true;var done=false;var bs=[];
+q.o.forEach(function(o,j){var b=document.createElement('button');b.className='o';b.textContent=o;bs.push(b);
+b.onclick=function(){if(done)return;done=true;n++;if(j===q.a){r++;b.classList.add('ok');w.textContent='Correct. '+q.w;}else{b.classList.add('no');bs[q.a].classList.add('ok');w.textContent='Not quite. '+q.w;}w.hidden=false;upd();};d.appendChild(b);});
+d.appendChild(w);qz.appendChild(d);});}
+document.getElementById('rst').onclick=build;build();
+})();
+</script>
 </body></html>
