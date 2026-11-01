@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart Exercise Solutions</title>
+    
+    <!-- 1. Load Marked.js to parse Markdown -->
+    <script src="https://jsdelivr.net"></script>
+
+    <!-- 2. Load GitHub Markdown CSS for clean styling -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    
+    <!-- 3. Load Prism.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+
+    <style>
+        body {
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: #ffffff;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .error-message {
+            color: #cf222e;
+            background-color: #ffebe9;
+            padding: 15px;
+            border: 1px solid rgba(255,129,130,0.4);
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        @media (max-width: 767px) {
+            .markdown-body { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container where the markdown contents will render -->
+    <article id="content" class="markdown-body">
+        <p>Loading solutions...</p>
+    </article>
+
+    <script>
+        // Point exactly one level up to target the root directory file
+        // URL-encoding is used because of the spaces in the filename
+        const markdownFilePath = '../Flowchart Exercise Solutions.md';
+
+        fetch(markdownFilePath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Failed to load file (Status: ${response.status})`);
+                }
+                return response.text();
+            })
+            .then(markdownText => {
+                // Convert Markdown formatting to HTML layout
+                document.getElementById('content').innerHTML = marked.parse(markdownText);
+                
+                // Trigger colors for nested code blocks
+                if (typeof Prism !== 'undefined') {
+                    Prism.highlightAll();
+                }
+            })
+            .catch(error => {
+                document.getElementById('content').innerHTML = `
+                    <div class="error-message">
+                        <h3>Unable to load Markdown File</h3>
+                        <p>Make sure "Flowchart Exercise Solutions.md" is copied to your deployment directory by your GitHub Action workflow.</p>
+                    </div>
+                `;
+                console.error('Markdown load error:', error);
+            });
+    </script>
+
+</body>
+</html>
