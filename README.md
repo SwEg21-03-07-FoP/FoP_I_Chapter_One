@@ -1,6 +1,6 @@
-<p style="align:center">Fundamentals of Programming I</p> 
+<p align="center">Fundamentals of Programming I</p> 
 
-<h1>Chapter One
+<h1 align="center">Chapter One
     <br>Basic Concepts of Programming
 </h1>
 
