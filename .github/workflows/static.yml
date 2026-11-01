@@ -1,5 +1,5 @@
 # Workflow for deploying static content to GitHub Pages
-name: Deploy Multiple Apps to GitHub Pages
+name: Deploy Static Pages to GitHub Pages
 
 on:
   push:
@@ -15,37 +15,18 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # 1. Build the first app
-      - name: Build App One
-        run: |
-          cd ../app-one
-          npm install
-          npm run build
-          
-      # 2. Build the second app
-      - name: Build App Two
-        run: |
-          cd ../app-two
-          npm install
-          npm run build
-
-      # 3. Combine build outputs into a single staging directory
-      - name: Prepare Staging Directory
+      # Creates a single deployment directory holding both subfolders
+      - name: Prepare Deployment Directory
         run: |
           mkdir staging
-          cp -r app-one/dist staging/app-one
-          cp -r app-two/dist staging/app-two
+          cp -r app-one staging/
+          cp -r app-two staging/
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
