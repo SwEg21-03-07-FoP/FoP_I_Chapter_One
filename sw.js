@@ -8,6 +8,13 @@ const ASSETS_TO_CACHE = [
   './Flowchart_Practice_Exercises.html',
   './Exercises_Solution.html',
   './Revision_Quiz_MCQ.html'
+  './Flowchart_Exercises_Solution.md',
+  './libs/github-markdown.min.css',
+  './libs/prism.min.css',
+  './libs/marked.min.js',
+  './libs/prism.min.js',
+  './libs/prism-autoloader.min.js',
+  './libs/mermaid.min.js'
 ];
 
 // 1. Install: Download and cache all pages upfront
